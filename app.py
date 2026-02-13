@@ -7,11 +7,10 @@ import os
 
 app = Flask(__name__)
 
-
 # ---------------- RUN CLI SCRIPT ----------------
 def run_mashup(singer, videos, duration):
     cmd = [
-        "py", "-3.12",
+        "python",      # IMPORTANT (not py -3.12)
         "102303958.py",
         singer,
         str(videos),
@@ -23,8 +22,8 @@ def run_mashup(singer, videos, duration):
 
 # ---------------- SEND EMAIL ----------------
 def send_email(receiver_email):
-    sender_email = "mahimkatiyar83@gmail.com"
-    app_password = "ejnszveecgzdaggm"
+    sender_email = os.environ.get("SENDER_EMAIL")
+    app_password = os.environ.get("APP_PASSWORD")
 
     msg = EmailMessage()
     msg["Subject"] = "Your Mashup File"
@@ -59,7 +58,6 @@ def home():
 
         run_mashup(singer, videos, duration)
 
-        # Create zip file
         with zipfile.ZipFile("mashup.zip", "w") as zipf:
             zipf.write("output.mp3")
 
@@ -71,4 +69,5 @@ def home():
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port)
