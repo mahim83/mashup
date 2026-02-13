@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mashup Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            font-family: Arial, sans-serif;
+        }
+
+        .card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 400px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 6px;
+            background-color: #2a5298;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1e3c72;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>Mashup Generator 🎵</h2>
+
+        <form method="POST">
+            <label>Singer Name</label>
+            <input type="text" name="singer" required>
+
+            <label># of Videos</label>
+            <input type="number" name="videos" required>
+
+            <label>Duration (seconds)</label>
+            <input type="number" name="duration" required>
+
+            <label>Email Id</label>
+            <input type="email" name="email" required>
+
+            <button type="submit">Generate Mashup</button>
+        </form>
+    </div>
+
+</body>
+</html>
