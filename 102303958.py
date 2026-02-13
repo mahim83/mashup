@@ -5,14 +5,6 @@ from moviepy import VideoFileClip
 from pydub import AudioSegment
 
 
-# ----------- MANUAL FFMPEG PATH -----------
-ffmpeg_path = r"C:\Users\mahim\Downloads\ffmpeg-8.0.1-essentials_build\ffmpeg-8.0.1-essentials_build\bin\ffmpeg.exe"
-ffprobe_path = r"C:\Users\mahim\Downloads\ffmpeg-8.0.1-essentials_build\ffmpeg-8.0.1-essentials_build\bin\ffprobe.exe"
-
-AudioSegment.converter = ffmpeg_path
-AudioSegment.ffprobe = ffprobe_path
-
-
 # ---------------- DOWNLOAD VIDEOS ----------------
 def download_videos(singer, num):
     print("Downloading videos...")
@@ -97,7 +89,7 @@ def merge_audios(output_file):
 # ---------------- MAIN ----------------
 def main():
     if len(sys.argv) != 5:
-        print("Usage: py -3.12 <rollno>.py <SingerName> <NumberOfVideos> <AudioDuration> <OutputFileName>")
+        print("Usage: python <rollno>.py <SingerName> <NumberOfVideos> <AudioDuration> <OutputFileName>")
         sys.exit(1)
 
     singer = sys.argv[1]
